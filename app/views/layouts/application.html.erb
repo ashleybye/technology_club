@@ -20,5 +20,8 @@
       <%= render 'layouts/footer' %>
     </div>
     <%= javascript_include_tag "application" %>
+    <% if content_for(:view_specific_javascript) %>
+      <%= content_for(:view_specific_javascript) %>
+    <% end %>
   </body>
 </html>

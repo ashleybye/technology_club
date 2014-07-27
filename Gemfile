@@ -13,6 +13,8 @@ gem 'jbuilder', '2.1.3'
 gem 'foundation-rails', '5.3.0.1'
 gem 'skrollr-rails', '0.6.26'
 gem 'imagesLoaded_rails', '3.1.8'
+gem 'gmaps4rails', '2.1.2'
+gem 'underscore-rails', '1.6.0'
 #gem 'bcrypt', '3.1.7'
 #gem 'bcrypt-ruby', '3.1.5'
 

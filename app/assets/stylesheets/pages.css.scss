@@ -40,3 +40,17 @@
     padding-top: 50px;
     padding-bottom: 50px;
 }
+
+/* Gmaps */
+img,
+object,
+embed {
+  max-width: none !important;
+  height: auto;
+}
+
+#map {
+	margin-top: 15px;
+	width: 100%;
+	height: 300px;
+}

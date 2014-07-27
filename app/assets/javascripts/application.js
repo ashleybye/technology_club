@@ -17,11 +17,15 @@
 //= require skrollr
 //= require skrollr.ie
 //= require skrollr.menu
+//= require underscore
+//= require gmaps/google
 //= require turbolinks
 //= require_tree .
 
+// Initialise Foundation 5
 $(function(){ $(document).foundation(); });
 
+// Initialise Skrollr and ImagesLoaded
 ( function( $ ) {
 
 	// Setup variables

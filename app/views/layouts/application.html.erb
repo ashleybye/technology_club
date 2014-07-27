@@ -12,9 +12,13 @@
   </head>
 
   <body class="loading">
-    <%= render 'layouts/header' %>
-    <%= yield %>
-    <%= render 'layouts/footer' %>
+    <div id="page-wrapper">
+      <%= render 'layouts/header' %>
+      <main>
+        <%= yield %>
+      </main>
+      <%= render 'layouts/footer' %>
+    </div>
     <%= javascript_include_tag "application" %>
   </body>
 </html>

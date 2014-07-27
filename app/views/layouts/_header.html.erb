@@ -1,19 +1,7 @@
-<div id="preload">
-	<%= image_tag(image_path('circuit.png')) %>
-	<%= image_tag(image_path('toolbox.png')) %>
-	<%= image_tag(image_path('machine.png')) %>
-	<%= image_tag(image_path('wires.png')) %>
-</div>
-
 <header>
-	<div class="header-large">
-		<div class="row">
-			<div class="large-push-2 medium-push-2 large-8 medium-8 small-12 columns text-center">
-				<%= image_tag(image_path('logo.png'), id: 'logo') %>
-	      <h1>Southend Young Makers Club</h1>
-			</div>
-		</div>
-	</div>
+	<% if content_for(:index_header) %>
+		<%= content_for(:index_header) %>
+	<% end %>
 	<div class="sticky">
 		<nav class="top-bar" data-topbar data-options="sticky_on: large; is_hover: false; mobile_show_parent_link: true">
 			<ul class="title-area">

@@ -2,37 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.quotation p {
-	max-width: 60%;
-	padding: 2%;
-	padding-left: 5%;
-	padding-right: 5%;
-	background-color: grey;
-	color: white;
-}
-
-.quotation p span {
-	padding-top: 10%;
-}
-
-.v-center {
-	display: table-cell;
-	vertical-align: middle;
-	height: 500px;
-}
-
 /* Homepage Skrollr */
-main {
-	overflow-x: hidden;
-}
-#preload {
-	width: 1px;
-	height: 1px;
-	overflow: hidden;
-	position: absolute;
-	top: 0;
-	left: 0;
-}
+
 .slide-background {
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -42,7 +13,7 @@ main {
 	width: 100%;
 }
 .content-slide a {
-	margin-top: 100px;
+	// margin-top: 100px;
 }
 .over-photo {
 	padding-top: 200px;
@@ -63,8 +34,9 @@ main {
 #slide-7 .slide-background { background-image:url(image_path('wires.png')) }
 
 /* Plain Slides */
-#slide-2 .slide-background, #slide-4 .slide-background, #slide-6 .slide-background, #slide-8 .slide-background {
+.plain-slide-background {
     background: none;
     background-color: #FFFFFF;
-    height: 500px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }

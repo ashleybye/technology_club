@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20140727172930) do
 
   create_table "newsitems", force: true do |t|
     t.string   "title"
-    t.string   "content"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

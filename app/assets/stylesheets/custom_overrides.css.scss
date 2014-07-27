@@ -9,5 +9,8 @@ $primary-white: rgba(255, 255, 255, 1);
 // Foundation
 $topbar-bg: $secondary-blue;
 $topbar-link-bg: $topbar-bg;
+$topbar-dropdown-bg: $topbar-bg;
+$topbar-dropdown-link-bg: $topbar-bg;
+$topbar-link-bg-hover: darken($topbar-bg, 10%);
 
 @import 'foundation';

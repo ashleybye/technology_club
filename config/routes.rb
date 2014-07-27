@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   
+  resources :newsitems, only: [:index, :show]
+
   root 'pages#index'
 
   match '/home', to: 'pages#index', via: :get
-  match '/test', to: 'pages#test', via: :get
+  match '/about', to: 'pages#about', via: :get
+  match '/location', to: 'pages#location', via: :get
+  match '/join', to: 'pages#join', via: :get
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

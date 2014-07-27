@@ -49,29 +49,27 @@
 		<div class="content-slide">
 			<article data-anchor-target="#slide-2 article" id="news" data-menu-offset="-250">
 				<div class="row">
-					<div class="small-4 columns">
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-						</p>
+					<% if @newsitem %>
+						<div class="small-8 columns">
+							<h4 class="newsitem">
+								<%= link_to @newsitem.title, @newsitem %>
+								<span>
+									Posted on <%= @newsitem.created_at.strftime('%A %-d %B %Y') %>
+									at <%= @newsitem.created_at.strftime('%l:%M %p') %>
+								</span>
+							</h4>
+							<p>
+								<%= @newsitem.content %>
+							</p>
+						</div>
+					<% else %>
+					<div class="small-8 columns">
+						<h4 class="newsitem">There is no news!</h4>
 					</div>
-					<div class="small-4 columns">
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-						</p>
-					</div>
+					<% end %>
 					<div class="small-4 columns">
 						<h1>Latest News</h1>
-						<p><a href="#">Link to all news? &raquo;</a></p>
+						<p><%= link_to 'All news &raquo;'.html_safe, newsitems_path %></p>
 					</div>
 				</div>
 			</article>
@@ -104,8 +102,9 @@
 				<div class="row">
 					<div class="small-4 columns">
 						<h1>About the Club</h1>
+						<p><%= link_to 'Full details &raquo;'.html_safe, about_path %></p>
 					</div>
-					<div class="small-4 columns">
+					<div class="small-8 columns">
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -114,8 +113,6 @@
 							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 						</p>
-					</div>
-					<div class="small-4 columns">
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -231,38 +228,5 @@
 </section>
 
 <% content_for(:view_specific_javascript) do %>
-	<!-- Google Map -->
-	<script src="//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry" type="text/javascript"></script>
-  <script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'></script>
-	
-	<script type="text/javascript">
-	  handler = Gmaps.build('Google');
-		handler.buildMap({
-		    provider: {
-		      // disableDefaultUI: false
-		      // pass in other Google Maps API options here
-		    },
-		    internal: {
-		      id: 'map'
-		    }
-		  },
-		  function(){
-		    markers = handler.addMarkers([
-		      {
-		        "lat": <%= @lat %>,
-			      "lng": <%= @lon %>,
-		        // "picture": {
-		        //   "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
-		        //   "width":  36,
-		        //   "height": 36
-		        // },
-		        "infowindow": "Why not come and join us?"
-		      }
-		    ]);
-		    handler.bounds.extendWith(markers);
-		    handler.fitMapToBounds();
-		    handler.getMap().setZoom(15);
-		  }
-		);
-	</script>
+	<%= render 'google_maps' %>
 <% end %>

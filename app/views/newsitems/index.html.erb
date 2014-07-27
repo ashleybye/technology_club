@@ -1,0 +1,33 @@
+<% content_for(:title, 'News') %>
+
+<div class="row">
+	<div class="small-12 columns">
+		<h1>News from the club</h1>
+	</div>
+</div>
+
+<% if @newsitems %>
+	<% @newsitems.each do |newsitem| %>
+		<div class="row" id="newsitem-<%= newsitem.id %>">
+			<div class="small-12 columns">
+				<hr />
+				<h2 class="newsitem">
+					<%= link_to newsitem.title, newsitem %>
+					<span>
+						Posted on <%= newsitem.created_at.strftime('%A %-d %B %Y') %>
+						at <%= newsitem.created_at.strftime('%l:%M %p') %>
+					</span>
+				</h2>
+				<p>
+					<%= newsitem.content %>
+				</p>
+			</div>
+		</div>
+	<% end %>
+<% else %>
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>Sorry, we have no news at the moment!</h2>
+		</div>
+	</div>
+<% end %>

@@ -1,3 +1,5 @@
+@import 'custom_overrides';
+
 html, body {
 	margin: 0;
 	padding: 0;
@@ -10,7 +12,7 @@ html, body {
 }
 
 .header-large {
-	background-color: rgba(7, 2, 17, 1);
+	background-color: $primary-blue;
 	padding-top: 50px;
 	padding-bottom: 50px;
 }
@@ -36,7 +38,7 @@ footer {
 
 #footer-top {
 	height: 100px;
-	background-color: rgba(96, 94, 99, 1);
+	background-color: $primary-yellow;
 	padding: 25px 15px;
 }
 
@@ -64,8 +66,8 @@ footer {
 	height: 20px;
 	line-height: 20px;
 	width: 100%;
-	background-color: rgba(0, 0, 0, 1);
-	color: rgba(255, 255, 255, 1);
+	background-color: $secondary-yellow;
+	color: $primary-white;
 	text-align: center;
 }
 

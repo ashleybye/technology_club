@@ -1,0 +1,34 @@
+<div id="preload">
+	<%= image_tag(image_path('circuit.png')) %>
+	<%= image_tag(image_path('toolbox.png')) %>
+	<%= image_tag(image_path('machine.png')) %>
+	<%= image_tag(image_path('wires.png')) %>
+</div>
+
+<header>
+	<div class="header-large">
+		<div class="row">
+			<div class="large-push-2 medium-push-2 large-8 medium-8 small-12 columns text-center">
+				<%= image_tag(image_path('logo.png'), id: 'logo') %>
+	      <h1>Southend Young Makers Club</h1>
+			</div>
+		</div>
+	</div>
+	<div class="sticky">
+		<nav class="top-bar" data-topbar data-options="sticky_on: large; is_hover: false; mobile_show_parent_link: true">
+			<ul class="title-area">
+				<li class="name">
+					<h1><%= link_to 'SYMC', root_path %></h1>
+				</li>
+			</ul>
+			<section class="top-bar-section">
+				<ul class="right">
+					<li><a href="#news">Latest News</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#location">Location</a></li>
+					<li><a href="#join">Join In</a></li>
+				</ul>
+			</section>
+		</nav>
+	</div>
+</header>

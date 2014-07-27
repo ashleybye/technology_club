@@ -1,0 +1,28 @@
+.header-large {
+	background-color: rgba(7, 2, 17, 1);
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.header-large h1 {
+	color: #FFFFFF;
+	font-size: 1.5em;
+	text-transform: uppercase;
+}
+
+footer {
+	background-color: rgba(96, 94, 99, 1);
+	bottom: 0;
+	left: 0;
+	padding-top: 20px;
+	padding-bottom: 1px;
+}
+
+#social ul li {
+	display: inline;
+	margin-right: 10px;
+}
+
+#facebook img, #twitter img {
+	height: 50px;
+}

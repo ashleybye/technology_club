@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   match '/about', to: 'pages#about', via: :get
   match '/location', to: 'pages#location', via: :get
   match '/join', to: 'pages#join', via: :get
+  match '/privacy_policy', to: 'pages#privacy', via: :get
+  match '/cookies_policy', to: 'pages#cookie', via: :get
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

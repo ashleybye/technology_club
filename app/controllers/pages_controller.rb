@@ -15,4 +15,10 @@ class PagesController < ApplicationController
 
   def join
   end
+
+  def privacy
+  end
+
+  def cookie
+  end
 end

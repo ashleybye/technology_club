@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     match 'dashboard', to: 'dash_board#index', via: :get
     
     resource :sessions, only: [:new, :create, :destroy]
+    resources :users, except: [:show]
     resources :newsitems
   end
 

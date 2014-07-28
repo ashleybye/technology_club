@@ -79,4 +79,38 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
 
 		"#{label.call} #{error_messages.call}".html_safe
 	end
+
+	# grouped_radio_buttons(method, tag_values, *args)
+	# loops through tag_values to determine tag_value and determines if checked for each radio button
+	# usage: grouped_radio_buttons(:admin, {yes: true, no: false}, default: false, class: '')
+	def grouped_radio_buttons(method, tag_values, *args)
+		options = args.extract_options!.symbolize_keys!
+		options[:label] ||= "#{method.to_s}".humanize
+		options[:class] ||= ""
+		options[:default] ||= nil
+		options.delete(:object)
+
+		label = lambda do
+			label_tag("#{@object_name}[#{method}]", "#{options[:label]}", class: "") do
+				label = "#{options[:label]}"
+				options.delete(:label)
+
+				label.html_safe
+			end
+		end
+
+		content = lambda do
+			radio_buttons = ""
+			tag_values.symbolize_keys!
+			tag_values.each do |tag_name, tag_value|
+				default = ""
+				default = "default: true" if tag_value == options[:default]
+				radio_buttons << radio_button(method, tag_value, options)
+				radio_buttons << label(method, tag_name.to_s.capitalize, options)
+			end
+			radio_buttons
+		end
+
+		"#{label.call} #{content.call}".html_safe
+	end
 end

@@ -28,9 +28,8 @@
         <% if signed_in? && current_user.admin? %>
           <div class="small-3 columns admin-nav-panel">
             <ul class="admin-side-nav">
-              <li><%= link_to 'News', admin_newsitems_path %></li>
-              <li><a href="#">Link 2</a></li>
-              <li><a href="#">Link 3</a></li>
+              <li class="<%= active_page?(admin_newsitems_path) %>"><%= link_to 'News', admin_newsitems_path %></li>
+              <li class="<%= active_page?(admin_users_path) %>"><%= link_to 'Users', admin_users_path %></li>
             </ul>
           </div>
         <% end %>

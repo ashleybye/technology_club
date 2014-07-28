@@ -1,0 +1,35 @@
+<% content_for(:title, 'Users | SYMC | Admin') %>
+
+<div class="row">
+	<div class="small-12 columns">
+		<h1>
+			All Users
+			<%= link_to 'Add User', new_admin_user_path, class: 'button right' %>
+		</h1>
+	</div>
+</div>
+
+<% if @users %>
+	<% @users.each do |user| %>
+		<div class="row">
+			<div class="small-12 columns">
+				<hr />
+				<h4>
+					<%= link_to "#{user.firstname} #{user.lastname}", "#" %>
+					<div class="right">
+						<%= content_tag(:small, "(Admin)") if user.admin? %>
+						<%= link_to 'Update', edit_admin_user_path(user), class: 'button tiny' %>
+						<%= link_to('Delete', admin_user_path(user), method: :delete,
+							class: "button alert tiny #{'disabled' if current_user?(user)}") %>
+					</div>
+				</h4>
+			</div>
+		</div>
+	<% end %>
+<% else %>
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>What! No users? Then something has gone wrong and you shouldn't be here!</h2>
+		</div>
+	</div>
+<% end %>

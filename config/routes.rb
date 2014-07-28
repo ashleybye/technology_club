@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   resources :newsitems, only: [:index, :show]
 
   root 'pages#index'
@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   match '/join', to: 'pages#join', via: :get
   match '/privacy_policy', to: 'pages#privacy', via: :get
   match '/cookies_policy', to: 'pages#cookie', via: :get
+  match '/contact_us', to: 'contact_us#new', via: :get
+  match '/contact_us', to: 'contact_us#create', via: :post
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

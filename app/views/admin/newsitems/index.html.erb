@@ -1,0 +1,37 @@
+<% content_for(:title, 'News | SYMC | Admin') %>
+
+<div class="row">
+	<div class="small-12 columns">
+		<h1>
+			All News
+			<%= link_to 'Add News Item', new_admin_newsitem_path, class: 'button right' %>
+		</h1>
+	</div>
+</div>
+
+<% if @newsitems %>
+	<% @newsitems.each do |newsitem| %>
+		<div class="row">
+			<div class="small-12 columns">
+				<hr />
+				<h4 class="newsitem">
+					<%= link_to newsitem.title, admin_newsitem_path(newsitem) %>
+					<div class="right">
+						<%= link_to 'Update', edit_admin_newsitem_path(newsitem), class: 'button tiny' %>
+						<%= link_to 'Delete', admin_newsitem_path(newsitem), method: :delete, class: 'button alert tiny' %>
+					</div>
+					<span>
+						Posted on <%= newsitem.created_at.strftime('%A %-d %B %Y') %>
+						at <%= newsitem.created_at.strftime('%l:%M %p') %>
+					</span>
+				</h4>
+			</div>
+		</div>
+	<% end %>
+<% else %>
+	<div class="row">
+		<div class="small-12 columns">
+			<h2>What! No news?</h2>
+		</div>
+	</div>
+<% end %>

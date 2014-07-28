@@ -84,3 +84,24 @@ footer {
 	top: 0;
 	left: 0;
 }
+
+/* Admin section specific */
+.admin-nav-panel {
+  @include panel(
+    $padding: 0
+  );
+}
+
+.admin-side-nav {
+  @include side-nav();
+  li {
+  	margin: 0px;
+  	padding: 0;
+  	a:not(.button) {
+	    display: block;
+	    color: #008CBA;
+	    margin: 0;
+	    padding: 5px;
+	  };
+  };
+}

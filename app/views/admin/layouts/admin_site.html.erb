@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body class="loading">
+    <div id="page-wrapper">
+      <%= render 'admin/layouts/header' %>
+      <% flash.each do |key, value| %>
+        <div data-alert class="<%= flash_css_class(key.to_sym) %>">
+          <div class="row">
+            <div class="small-12 columns">
+              <%= value %>
+            </div>
+          </div>
+          <a href="#" class="close">&times;</a>
+        </div>
+      <% end %>
+      <main>
+        <% if signed_in? && current_user.admin? %>
+          <div class="small-3 columns admin-nav-panel">
+            <ul class="admin-side-nav">
+              <li><%= link_to 'News', admin_newsitems_path %></li>
+              <li><a href="#">Link 2</a></li>
+              <li><a href="#">Link 3</a></li>
+            </ul>
+          </div>
+        <% end %>
+        <div class="row">
+          <div class="small-9 columns">
+            <%= yield %>
+          </div>
+        </div>
+      </main>
+      <%= render 'admin/layouts/footer' %>
+    </div>
+    <%= javascript_include_tag "application" %>
+    <% if content_for(:view_specific_javascript) %>
+      <%= content_for(:view_specific_javascript) %>
+    <% end %>
+  </body>
+</html>

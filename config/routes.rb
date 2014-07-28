@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    root 'sessions#new'
+
+    match 'dashboard', to: 'dash_board#index', via: :get
+    
+    resource :sessions, only: [:new, :create, :destroy]
+    resources :newsitems
+  end
+
   resources :newsitems, only: [:index, :show]
 
   root 'pages#index'

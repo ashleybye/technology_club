@@ -3,6 +3,7 @@ ruby '2.1.2'
 #ruby-gemset=technology_class
 
 gem 'rails', '4.1.4'
+gem 'thin', '1.6.2'
 gem 'pg', '0.17.1'
 gem 'sass-rails', '4.0.3'
 gem 'uglifier', '2.5.1'

@@ -11,11 +11,11 @@ class ContactUsController < ApplicationController
 				redirect_to root_path
 			else
 				flash.now[:warning] = "Oops! Something went wrong sending your query. Please try again later."
-				render 'new'
+				render :new
 			end
 		else
 			flash.now[:alert] = "Oops! You have not filled out the form correctly. Please try again."
-			render 'new'
+			render :new
 		end
 	end
 

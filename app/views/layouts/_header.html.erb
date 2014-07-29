@@ -17,9 +17,18 @@
 					<li class="<%= active_page?(location_path) %>"><%= link_to 'Location', location_path %></li>
 					<li class="<%= active_page?(join_path) %>"><%= link_to 'Join In', join_path %></li>
 				</ul>
-				<% if signed_in? %>
-					<%= render 'admin/layouts/admin_dropdown_menu' %>
-				<% end %>
+				<ul class="left">
+					<% if signed_in? %>
+						<%= render 'shared/user_dropdown_menu' %>
+					<% else %>
+						<li class="has-form">
+							<%= link_to "Sign In", signin_path, class: 'button' %>
+						</li>
+						<li class="has-form">
+							<%= link_to "Sign Up", signup_path, class: 'button' %>
+						</li>
+					<% end %>
+				</ul>
 			</section>
 		</nav>
 	</div>

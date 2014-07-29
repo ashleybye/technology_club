@@ -5,14 +5,21 @@ Rails.application.routes.draw do
 
     match 'dashboard', to: 'dash_board#index', via: :get
     
-    resource :sessions, only: [:new, :create, :destroy]
+    resource :sessions, only: [:new, :create]
     resources :users, except: [:show]
     resources :newsitems
   end
 
+  resource :sessions, only: [:new, :create, :destroy]
+  resources :users, except: :index
   resources :newsitems, only: [:index, :show]
 
   root 'pages#index'
+
+  match '/signin', to: 'sessions#new', via: :get
+  match '/signin', to: 'sessions#new', via: :post
+  match '/signout', to: 'sessions#destroy', via: :delete
+  match '/signup', to: 'users#new', via: :get
 
   match '/home', to: 'pages#index', via: :get
   match '/about', to: 'pages#about', via: :get

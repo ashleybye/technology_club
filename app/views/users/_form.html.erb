@@ -1,0 +1,16 @@
+<%= form_for(@user, builder: FoundationFormBuilder) do |f| %>
+	<%= f.text_field :firstname %>
+	<%= f.text_field :lastname %>
+	<%= f.text_field :email %>
+	<%= f.password_field :password %>
+	<%= f.password_field :password_confirmation %>
+	<div class="right">
+	<% if current_user?(@user) %>
+		<%= f.submit "Update", class: 'button round' %>
+		<%= link_to 'Cancel', user_path(@user), class: 'button alert tiny' %>
+	<% else %>
+		<%= f.submit "Sign Up", class: 'button round' %>
+		<%= link_to 'Cancel', root_path, class: 'button alert tiny' %>
+	<% end %>
+	</div>
+<% end %>

@@ -1,0 +1,22 @@
+<% content_for(:title, 'Edit Account') %>
+
+<div class="row">
+	<div class="small-12 columns">
+		<h1>
+			Edit <%= "#{@user.firstname} #{@user.lastname}" %>
+		</h1>
+	</div>
+</div>
+
+<div class="row">
+	<div class="small-12 columns">
+		<%= render 'form' %>
+	</div>
+</div>
+
+<div class="row">
+	<div class="small-12 columns">
+		<%= link_to 'Remove account', user_path(@user), method: :delete,
+			data: { confirm: 'This is permanent. Are you sure?' }, class: 'button alert' %>
+	</div>
+</div>

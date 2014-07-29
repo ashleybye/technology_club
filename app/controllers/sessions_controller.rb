@@ -1,10 +1,8 @@
-class Admin::SessionsController < Admin::AdminController
+class SessionsController < UserAccessController
 	
-	skip_before_action :require_admin_signin, only: [:new, :create]
+	skip_before_action :require_signin, only: [:new, :create]
 
 	def new
-		# If already looged in, don't be here, go to the dashboard
-		redirect_to admin_dashboard_path if current_user.admin?
 		@session = Session.new
 	end
 
@@ -14,7 +12,7 @@ class Admin::SessionsController < Admin::AdminController
 			if user = User.authenticate(params[:session][:email].downcase, params[:session][:password])
 				session[:user_id] = user.id
 				flash[:success] = "Welcome back, #{user.firstname}"
-				redirect_to admin_dashboard_path
+				redirect_to session[:intended_url] || user_path(user)
 				session[:intended_url] = nil
 			else
 				flash.now[:alert] = "Uh oh! We don't recognise that email/password combination. Please try again."
@@ -24,6 +22,12 @@ class Admin::SessionsController < Admin::AdminController
 			flash.now[:alert] = "Uh oh! There was some kind of problem. Take a look below and try again."
 			render 'new'
 		end
+	end
+
+	def destroy
+		session[:user_id] = nil
+		flash[:notice] = "You are now logged out!"
+		redirect_to root_path
 	end
 
 	private

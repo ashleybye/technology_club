@@ -1,0 +1,2 @@
+web: bundle exec rails server thin -p $PORT -e $RACK_ENV
+mailcatcher: ruby -rbundler/setup -e "Bundler.clean_exec('mailcatcher --foreground --smtp-port $SMTP_PORT --http-port $WEBMAIL_PORT')"

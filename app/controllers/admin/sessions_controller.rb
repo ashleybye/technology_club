@@ -1,10 +1,8 @@
 class Admin::SessionsController < Admin::AdminController
 	
-	skip_before_action :require_admin_signin, only: [:new, :create]
+	skip_before_action :require_admin_signin, only: [:new, :create, :destroy]
 
 	def new
-		# If already looged in, don't be here, go to the dashboard
-		redirect_to admin_dashboard_path if current_user.admin?
 		@session = Session.new
 	end
 
@@ -24,6 +22,13 @@ class Admin::SessionsController < Admin::AdminController
 			flash.now[:alert] = "Uh oh! There was some kind of problem. Take a look below and try again."
 			render 'new'
 		end
+	end
+
+	def destroy
+		session[:user_id] = nil
+		current_user = nil
+		flash[:notice] = "You are now logged out."
+		redirect_to root_path
 	end
 
 	private

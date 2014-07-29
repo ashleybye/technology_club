@@ -19,14 +19,7 @@
 				</ul>
 				<ul class="left">
 					<% if signed_in? %>
-						<%= render 'shared/user_dropdown_menu' %>
-					<% else %>
-						<li class="has-form">
-							<%= link_to "Sign In", signin_path, class: 'button' %>
-						</li>
-						<li class="has-form">
-							<%= link_to "Sign Up", signup_path, class: 'button' %>
-						</li>
+						<%= render 'admin/layouts/user_dropdown_menu' %>
 					<% end %>
 				</ul>
 			</section>

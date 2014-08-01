@@ -12,6 +12,8 @@
  *
  * require foundation_and_overrides
  *= require custom_overrides
+ *= require foundation-icons
+ *= require foundation_calendar
  *= require_tree .
  *= require_self
  *= require styles

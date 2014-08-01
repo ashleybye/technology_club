@@ -13,6 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require date
+//= require foundation_calendar
+//= require helpers/date-helpers
+//= require helpers/string-helpers
 //= require imagesloaded
 //= require skrollr
 //= require skrollr.ie
@@ -23,7 +27,9 @@
 //= require_tree .
 
 // Initialise Foundation 5
-$(function(){ $(document).foundation(); });
+$(function(){
+	$(document).foundation();
+});
 
 // Initialise Skrollr and ImagesLoaded
 ( function( $ ) {

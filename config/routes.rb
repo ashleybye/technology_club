@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   match '/location',          to: 'pages#location',             via: :get
   match '/privacy_policy',    to: 'pages#privacy',              via: :get
   match '/cookies_policy',    to: 'pages#cookie',               via: :get
+  match '/accept_cookies_policy', to: 'pages#cookie_accept',    via: :get
+  match '/disclaimer',        to: 'pages#disclaimer',           via: :get
   match '/contact_us',        to: 'contact_us#new',             via: :get
   match '/contact_us',        to: 'contact_us#create',          via: :post
   match '/register_interest', to: 'interested_parties#new',     via: :get

@@ -18,4 +18,13 @@ class PagesController < ApplicationController
 
   def cookie
   end
+
+  def cookie_accept
+    referring_url = params[:ref]
+    accept_cookies_policy
+    redirect_to referring_url
+  end
+
+  def disclaimer
+  end
 end

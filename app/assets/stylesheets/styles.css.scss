@@ -85,6 +85,10 @@ footer {
 	left: 0;
 }
 
+.policy ul li {
+	list-style: none;
+}
+
 /* Admin section specific */
 .admin-nav-panel {
   @include panel(

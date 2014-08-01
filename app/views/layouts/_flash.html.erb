@@ -1,0 +1,10 @@
+<% flash.each do |key, value| %>
+  <div data-alert class="<%= flash_css_class(key.to_sym) %>">
+    <div class="row">
+      <div class="small-12 columns">
+        <%= value.html_safe %>
+      </div>
+    </div>
+    <% link_to "&times;".html_safe, '#', class: 'close' if visitor_has_accepted_cookies_policy? %>
+  </div>
+<% end %>

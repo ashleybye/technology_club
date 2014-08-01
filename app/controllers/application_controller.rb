@@ -24,4 +24,10 @@ class ApplicationController < ActionController::Base
 		end
 		helper_method :signed_in?
 
+    def age(date)
+      age = Date.today.year - date.year
+      age - 1 if (Date.today.month <= date.month) && (Date.today.day < date.day)
+    end
+    helper_method :age
+
 end

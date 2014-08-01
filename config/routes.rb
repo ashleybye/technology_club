@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
     match 'dashboard', to: 'dash_board#index', via: :get
     
-    resource :sessions, only: [:new, :create, :destroy]
-    resources :users, except: [:show]
+    resource  :sessions,  only: [:new, :create, :destroy]
+    resources :users,     except: [:show]
     resources :newsitems
   end
 
@@ -14,14 +14,16 @@ Rails.application.routes.draw do
 
   root 'pages#index'
 
-  match '/home', to: 'pages#index', via: :get
-  match '/about', to: 'pages#about', via: :get
-  match '/location', to: 'pages#location', via: :get
-  match '/join', to: 'pages#join', via: :get
-  match '/privacy_policy', to: 'pages#privacy', via: :get
-  match '/cookies_policy', to: 'pages#cookie', via: :get
-  match '/contact_us', to: 'contact_us#new', via: :get
-  match '/contact_us', to: 'contact_us#create', via: :post
+  match '/home',              to: 'pages#index',                via: :get
+  match '/about',             to: 'pages#about',                via: :get
+  match '/location',          to: 'pages#location',             via: :get
+  match '/join',              to: 'pages#join',                 via: :get
+  match '/privacy_policy',    to: 'pages#privacy',              via: :get
+  match '/cookies_policy',    to: 'pages#cookie',               via: :get
+  match '/contact_us',        to: 'contact_us#new',             via: :get
+  match '/contact_us',        to: 'contact_us#create',          via: :post
+  match '/register_interest', to: 'interested_parties#new',     via: :get
+  match '/register_interest', to: 'interested_parties#create',  via: :post
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

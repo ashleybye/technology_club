@@ -21,6 +21,16 @@ class ContactUsMailer < ActionMailer::Base
     mail(to: 'interest-symc@emd-research.co.uk', from: @email, subject: "#{@child} (#{@age}) is interested")
   end
 
+  def volunteer(message)
+    @firstname = message.firstname
+    @lastname = message.lastname
+    @email = message.email
+    @why = message.why
+    @experience = message.experience
+    @comments = message.comments
+    mail(to: 'volunteers-symc@emd-research.co.uk', from: @email, subjet: "I'd like to volunteer")
+  end
+
   private
 
     def age(date)

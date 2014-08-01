@@ -13,9 +13,6 @@ class PagesController < ApplicationController
     @lon = 0.603444
   end
 
-  def join
-  end
-
   def privacy
   end
 

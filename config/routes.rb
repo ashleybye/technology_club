@@ -17,13 +17,14 @@ Rails.application.routes.draw do
   match '/home',              to: 'pages#index',                via: :get
   match '/about',             to: 'pages#about',                via: :get
   match '/location',          to: 'pages#location',             via: :get
-  match '/join',              to: 'pages#join',                 via: :get
   match '/privacy_policy',    to: 'pages#privacy',              via: :get
   match '/cookies_policy',    to: 'pages#cookie',               via: :get
   match '/contact_us',        to: 'contact_us#new',             via: :get
   match '/contact_us',        to: 'contact_us#create',          via: :post
   match '/register_interest', to: 'interested_parties#new',     via: :get
   match '/register_interest', to: 'interested_parties#create',  via: :post
+  match '/volunteer',         to: 'volunteers#new',             via: :get
+  match '/volunteer',         to: 'volunteers#create',          via: :post
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

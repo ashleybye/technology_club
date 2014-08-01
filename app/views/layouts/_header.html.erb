@@ -15,7 +15,7 @@
 					<li class="<%= active_page?(newsitems_path) %>"><%= link_to 'News', newsitems_path %></li>
 					<li class="<%= active_page?(about_path) %>"><%= link_to 'About', about_path %></li>
 					<li class="<%= active_page?(location_path) %>"><%= link_to 'Location', location_path %></li>
-					<li class="<%= active_page?(join_path) %>"><%= link_to 'Join In', register_interest_path %></li>
+					<li class="<%= active_page?(register_interest_path) %>"><%= link_to 'Join In', register_interest_path %></li>
 				</ul>
 				<ul class="left">
 					<% if signed_in? %>

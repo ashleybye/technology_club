@@ -1,0 +1,36 @@
+<% content_for(:title, 'Volunteer') %>
+
+<div class="row">
+  <div class="small-12 columns">
+    <h1>Volunteer to help out</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-6 columns right">
+    <p>
+      The Young makers club operates on a membership only basis but we do require keen and experienced
+      people to volunteer to help run the club. If you think you have the necessary skills we would
+      love to hear from you. Please fill out the form and we will be in touch.
+    </p>
+  </div>
+
+  <div class="small-6 columns panel left">
+    <%= form_for @volunteer, url: volunteer_path do |f| %>
+      
+      <%= f.zurb_text_field :firstname, label: { label: "First name" } %>
+
+      <%= f.zurb_text_field :lastname, label: { label: "Last name" } %>
+
+      <%= f.zurb_text_field :email %>
+
+      <%= f.zurb_text_area :why, label: { label: "Why do you want to get involved?" }, field: { rows: 5 } %>
+
+      <%= f.zurb_text_area :experience, label: { label: "What experience do you have?" }, field: { rows: 5 } %>
+
+      <%= f.zurb_text_area :comments, label: { label: "Any other comments?" }, field: { rows: 5 } %>
+
+      <%= f.submit "Send", class: "button round right" %>
+    <% end %>
+  </div>
+</div>

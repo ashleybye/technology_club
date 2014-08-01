@@ -6,6 +6,6 @@ class ContactUsMailer < ActionMailer::Base
   	@user = message.name
   	@email = message.email
   	@comment = message.comment
-  	mail(to: 'ashley.bye85@gmail.com', from: @email, subject: 'SYMC Query')
+  	mail(to: 'contact-symc@emd-research.co.uk', from: @email, subject: 'SYMC Query')
   end
 end

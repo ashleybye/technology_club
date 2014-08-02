@@ -3,12 +3,10 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :cookies_policy
-
   private
 
     # Constant to store when cookie policy altered in human and linux timestamp form
-    COOKIES_POLICY_ALTERED_TIME = '1 August 2014 22:00:00'
+    COOKIES_POLICY_ALTERED_TIME = '2 August 2014 20:10:00'
     COOKIES_POLICY_ALTERED_ON = Time.parse(COOKIES_POLICY_ALTERED_TIME).strftime('%s').to_i
 
 	  def current_user
@@ -35,14 +33,6 @@ class ApplicationController < ActionController::Base
       age - 1 if (Date.today.month <= date.month) && (Date.today.day < date.day)
     end
     helper_method :age
-
-    def cookies_policy
-      unless visitor_has_accepted_cookies_policy?
-        flash.now[:secondary] = %Q[This site uses cookies. Please read our <a href="/cookies_policy">Cookies
-          Policy</a>. Click to <a href="/accept_cookies_policy?ref=#{request.url}" class="no-close-cookies-policy">accept</a>
-          the terms of our policy.]
-      end
-    end
 
     # Compares whether timestamp stored in cookie is greater than or equal to when policy last changed.
     # If true, visitor has accepted latest policy.

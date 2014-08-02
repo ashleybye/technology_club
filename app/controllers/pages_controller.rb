@@ -13,6 +13,9 @@ class PagesController < ApplicationController
     @lon = 0.603444
   end
 
+  def club_rules
+  end
+
   def privacy
   end
 

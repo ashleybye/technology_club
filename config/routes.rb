@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   match '/home',              to: 'pages#index',                via: :get
   match '/about',             to: 'pages#about',                via: :get
   match '/location',          to: 'pages#location',             via: :get
+  match '/club_rules',        to: 'pages#club_rules',           via: :get
   match '/privacy_policy',    to: 'pages#privacy',              via: :get
   match '/cookies_policy',    to: 'pages#cookie',               via: :get
   match '/accept_cookies_policy', to: 'pages#cookie_accept',    via: :get

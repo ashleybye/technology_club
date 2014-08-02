@@ -24,6 +24,7 @@
 				</ul>
 			</section>
 		</nav>
+    <%= render 'layouts/cookies_message' unless visitor_has_accepted_cookies_policy? %>
 		<%= render 'layouts/flash' %>
 	</div>
 </header>

@@ -5,6 +5,6 @@
         <%= value.html_safe %>
       </div>
     </div>
-    <% link_to "&times;".html_safe, '#', class: 'close' if visitor_has_accepted_cookies_policy? %>
+    <%= link_to "&times;".html_safe, '#', class: 'close' %>
   </div>
 <% end %>

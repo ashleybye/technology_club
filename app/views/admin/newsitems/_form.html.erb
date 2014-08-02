@@ -1,4 +1,4 @@
-<%= form_for([:admin, @newsitem], builder: FoundationFormBuilder) do |f| %>
+<%= form_for([:admin, @newsitem]) do |f| %>
 	<%= f.text_field :title, autofocus: true %>
 	<%= f.text_area :content, rows: 10 %>
 	<div class="right">

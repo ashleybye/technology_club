@@ -1,11 +1,11 @@
 <%= form_for([:admin, @user]) do |f| %>
-	<%= f.text_field :firstname %>
-	<%= f.text_field :lastname %>
-	<%= f.text_field :email %>
-	<%= f.password_field :password %>
-	<%= f.password_field :password_confirmation %>
+	<%= f.zurb_text_field :firstname %>
+	<%= f.zurb_text_field :lastname %>
+	<%= f.zurb_text_field :email %>
+	<%= f.zurb_password_field :password %>
+	<%= f.zurb_password_field :password_confirmation %>
 	<% unless current_user?(@user) %>
-		<%= f.grouped_radio_buttons :admin, {no: false, yes: true}, default: false, label: "Is user an administrator?" %>
+		<%= f.zurb_grouped_radio_buttons :admin, {no: false, yes: true}, default: false, label: "Is user an administrator?" %>
 	<% end %>
 	<div class="right">
 		<%= f.submit class: 'button round' %>

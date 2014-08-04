@@ -21,3 +21,8 @@ doc/
 .DS_Store
 .idea
 .env
+<<<<<<< HEAD
+=======
+# Ignore application configuration
+/config/application.yml
+>>>>>>> release

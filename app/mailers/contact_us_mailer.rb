@@ -26,6 +26,7 @@ class ContactUsMailer < ActionMailer::Base
     @firstname = message.firstname
     @lastname = message.lastname
     @email = message.email
+    @phone_no = message.phone_no
     @why = message.why
     @experience = message.experience
     @comments = message.comments

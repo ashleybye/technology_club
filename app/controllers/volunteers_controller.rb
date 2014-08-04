@@ -5,7 +5,7 @@ class VolunteersController < ApplicationController
 
   def create
     @volunteer = Volunteer.new(volunteer_params)
-    if @volunteer.valid?
+    if @volunteer.save
       if ContactUsMailer.volunteer(@volunteer).deliver
         flash[:success] = "Thank you for your volunteering, we will be in touch shortly."
         redirect_to root_path
@@ -22,6 +22,6 @@ class VolunteersController < ApplicationController
   private
 
     def volunteer_params
-      params.require(:volunteer).permit(:firstname, :lastname, :email, :why, :experience, :comments)
+      params.require(:volunteer).permit(:firstname, :lastname, :email, :phone_no, :why, :experience, :comments)
     end
 end

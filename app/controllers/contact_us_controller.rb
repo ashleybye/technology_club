@@ -5,7 +5,7 @@ class ContactUsController < ApplicationController
 
 	def create
 		@message = Message.new(message_params)
-		if @message.valid?
+		if @message.save?
 			if ContactUsMailer.contact_us_query(@message).deliver
 				flash[:success] = "Thank you for your message, we will be in touch shortly."
 				redirect_to root_path

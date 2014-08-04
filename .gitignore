@@ -13,6 +13,7 @@
 
 # Ignore other unneeded files.
 database.yml
+application.yml
 doc/
 *.swp
 *~

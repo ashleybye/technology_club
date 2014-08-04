@@ -16,6 +16,7 @@ class ContactUsMailer < ActionMailer::Base
     @dob = Date.parse(message.child_dob).strftime('%d %B %Y')
     @age = age(Date.parse(@dob))
     @gender = message.child_gender
+    @session_time = message.session_time
     @email = message.parent_email
     @comments = message.comments
     mail(to: 'interest-symc@emd-research.co.uk', from: @email, subject: "#{@child} (#{@age}) is interested")

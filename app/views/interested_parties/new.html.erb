@@ -8,7 +8,7 @@
 
 <div class="row">
 
-  <div class="small-6 columns right">
+  <div class="small-6 columns left">
     <p>
       The Young makers club operates on a membership only basis. Due to safety requirements only a limited number of places are available. A quarterly membership fee is payable in advance. Full details of membership is available <%= link_to 'here', club_rules_path %>.
       Please complete the registration of interest form if you wish to be notified when a place becomes
@@ -20,31 +20,32 @@
     </p>
   </div>
 
-  <div class="small-6 columns panel left">
-    
+  <div class="small-6 columns panel right">
+
     <%= form_for @interested_party, url: register_interest_path do |f| %>
-      
+
       <h4>I wish for my child</h4>
-      
+
       <%= f.zurb_text_field :child_firstname, label: { label: "Child's first name" } %>
       <%= f.zurb_text_field :child_lastname, label: { label: "Child's last name" } %>
       <%= f.zurb_date_field :child_dob, label: { label: "Child's date of birth" },
         field: {
-          class: 'datepicker', 
+          class: 'datepicker',
           value: 12.years.ago.strftime('%Y-%m-%d %H:%M:%S'),
           data: { date: true, :'date-format' => '%d %B %Y' }
         }
       %>
       <%= f.zurb_select :child_gender, options_for_select([['Male', 'male'], ['Female', 'female']]), label: { label: "Child's gender" } %>
+      <%= f.zurb_select :session_time, options_for_select([['9:00 - 11:00', 'early'], ['11:00 - 13:00', 'late']]), label: { label: "Preferred session time" } %>
 
       <p>To be considered for membership in the Young makers club when a place becomes available.</p>
-      <h4>I am the parent, legal guardian or responsible adult for the above named child.</h4>
+      <p>I am the parent, legal guardian or responsible adult for the above named child.</p>
 
       <%= f.zurb_select :parent_title, options_for_select([
             ['Dr', 'dr'], ['Miss', 'miss'], ['Mr', 'mr'], ['Mrs', 'mrs'], ['Ms', 'ms'], ['Prof', 'prof']
           ]), label: { label: "Your title" } %>
       <%= f.zurb_text_field :parent_firstname, label: { label: "Your first name" } %>
-      <%= f.zurb_text_field :parent_lastname, label: { label: "Your last name" } %> 
+      <%= f.zurb_text_field :parent_lastname, label: { label: "Your last name" } %>
       <%= f.zurb_email_field :parent_email, label: { label: "Your email" } %>
       <%= f.zurb_select :parent_relationship, options_for_select([['Father', 'father'], ['Mother', 'mother']]), label: { label: "Your relationship to the child" } %>
       <%= f.zurb_text_area :comments, label: { label: "Any comments" }, field: { rows: 5 } %>

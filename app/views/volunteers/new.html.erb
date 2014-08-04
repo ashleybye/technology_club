@@ -7,7 +7,7 @@
 </div>
 
 <div class="row">
-  <div class="small-6 columns right">
+  <div class="small-6 columns left">
     <p>
       The Young makers club relies on adult volunteers to help out on a Saturday morning. All our helpers have an interest or passion to promote technology and engineering to the next generation, to provide them with an opportunity to experiment and explore different aspects of their creativity and encourage them.
     </p>
@@ -22,9 +22,9 @@
     </p>
   </div>
 
-  <div class="small-6 columns panel left">
+  <div class="small-6 columns panel right">
     <%= form_for @volunteer, url: volunteer_path do |f| %>
-      
+
       <%= f.zurb_text_field :firstname, label: { label: "First name" } %>
 
       <%= f.zurb_text_field :lastname, label: { label: "Last name" } %>

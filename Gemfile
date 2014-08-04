@@ -19,7 +19,7 @@ gem 'imagesLoaded_rails', '3.1.8'
 gem 'gmaps4rails', '2.1.2'
 gem 'underscore-rails', '1.6.0'
 gem 'bcrypt', '3.1.7'
-# gem 'bcrypt-ruby', '3.1.5'
+gem 'figaro', '0.7.0'
 
 group :development do
 	# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

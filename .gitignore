@@ -22,7 +22,14 @@ doc/
 .idea
 .env
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Ignore application configuration
 /config/application.yml
 =======
 >>>>>>> release-0.3
+=======
+=======
+# Ignore application configuration
+/config/application.yml
+>>>>>>> release
+>>>>>>> hotfix

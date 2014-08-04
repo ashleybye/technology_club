@@ -24,7 +24,7 @@ class InterestedPartiesController < ApplicationController
     def interested_party_params
       params.require(:interested_party).permit(
         :parent_title, :parent_firstname, :parent_lastname, :parent_email, :parent_relationship,
-        :child_firstname, :child_lastname, :child_dob, :child_gender,
+        :child_firstname, :child_lastname, :child_dob, :child_gender, :session_time,
         :comments
       )
     end

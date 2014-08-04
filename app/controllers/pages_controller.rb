@@ -30,4 +30,7 @@ class PagesController < ApplicationController
 
   def disclaimer
   end
+
+  def linking
+  end
 end

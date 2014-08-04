@@ -6,7 +6,7 @@
 	</div>
 </div>
 
-<% if @newsitems %>
+<% if @newsitems.any? %>
 	<% @newsitems.each do |newsitem| %>
 		<div class="row" id="newsitem-<%= newsitem.id %>">
 			<div class="small-12 columns">

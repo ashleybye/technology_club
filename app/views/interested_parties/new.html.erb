@@ -28,12 +28,7 @@
 
       <%= f.zurb_text_field :child_firstname, label: { label: "Child's first name" } %>
       <%= f.zurb_text_field :child_lastname, label: { label: "Child's last name" } %>
-      <%= f.zurb_date_field :child_dob, label: { label: "Child's date of birth" },
-        field: {
-          class: 'datepicker',
-          value: 12.years.ago.strftime('%Y-%m-%d %H:%M:%S'),
-          data: { date: true, :'date-format' => '%d %B %Y' }
-        }
+      <%= f.zurb_text_field :child_dob, label: { label: "Child's date of birth" }, field: { type: :date, placeholder: 'DD/MM/YYYY' }
       %>
       <%= f.zurb_select :child_gender, options_for_select([['Male', 'male'], ['Female', 'female']]), label: { label: "Child's gender" } %>
       <%= f.zurb_select :session_time, options_for_select([['9:00 - 11:00', 'early'], ['11:00 - 13:00', 'late']]), label: { label: "Preferred session time" } %>
@@ -47,7 +42,7 @@
       <%= f.zurb_text_field :parent_firstname, label: { label: "Your first name" } %>
       <%= f.zurb_text_field :parent_lastname, label: { label: "Your last name" } %>
       <%= f.zurb_email_field :parent_email, label: { label: "Your email" } %>
-      <%= f.zurb_select :parent_relationship, options_for_select([['Father', 'father'], ['Mother', 'mother']]), label: { label: "Your relationship to the child" } %>
+      <%= f.zurb_text_field :parent_relationship, label: { label: "Your relationship to the child" } %>
       <%= f.zurb_text_area :comments, label: { label: "Any comments" }, field: { rows: 5 } %>
 
       <%= f.submit "Register Interest", class: "button round right" %>

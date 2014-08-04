@@ -5,7 +5,7 @@ class InterestedPartiesController < ApplicationController
 
   def create
     @interested_party = InterestedParty.new(interested_party_params)
-    if @interested_party.valid?
+    if @interested_party.save?
       if ContactUsMailer.interested_party_message(@interested_party).deliver
         flash[:success] = "Thank you for your message, we will be in touch when we have availability."
         redirect_to root_path

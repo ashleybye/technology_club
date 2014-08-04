@@ -64,16 +64,16 @@ Rails.application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: 'http://www.example.com' }
+  config.action_mailer.default_url_options = { host: 'localhost' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
-    :port           => '587',
+    :address        => 'mail.emd-research.co.uk',
+    :port           => '26',
     :authentication => :plain,
-    :user_name      => ENV['SENDGRID_USERNAME'],
-    :password       => ENV['SENDGRID_PASSWORD'],
-    :domain         => 'heroku.com',
-    :enable_starttls_auto => true
+    :user_name      => ENV['EMAIL_USERNAME'],
+    :password       => ENV['EMAIL_PASSWORD'],
+    :domain         => 'emd-research.co.uk',
+    :enable_starttls_auto => false
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to

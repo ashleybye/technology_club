@@ -1,0 +1,26 @@
+%header
+  - if content_for(:index_header)
+    = content_for(:index_header)
+
+  %nav.navbar.navbar-default
+    .container
+      .navbar-header
+        %button.navbar-toggle( type="button" data-toggle="collapse" data-target="#main-navbar" )
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        = link_to "YMTEC", root_path, class: "navbar-brand"
+      #main-navbar.collapse.navbar-collapse
+        %ul.nav.navbar-nav
+          - if signed_in?
+            = render 'admin/layouts/user_dropdown_menu'
+        %ul.nav.navbar-nav.navbar-right
+          %li{:class => active_page?(newsitems_path)}= link_to 'News', newsitems_path
+          %li{:class => active_page?(about_path)}= link_to 'About', about_path
+          %li{:class => active_page?(location_path)}= link_to 'Location', location_path
+          %li{:class => active_page?(register_interest_path)}= link_to 'Join In', register_interest_path
+          %li{:class => active_page?(volunteer_path)}= link_to 'Volunteer', volunteer_path
+
+  = render 'layouts/cookies_message' unless visitor_has_accepted_cookies_policy?
+  = render 'layouts/flash'

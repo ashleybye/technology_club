@@ -1,0 +1,24 @@
+- content_for(:title, 'Volunteer | YMTEC')
+.container
+  .row
+    .col-xs-12
+      %h1 Volunteer to help out
+
+.container
+  .row
+    .col-xs-12.col-lg-6
+      %p The Young Engineering and Technology Club relies on adult volunteers to help out on a Saturday morning. All our helpers have an interest or passion to promote technology and engineering to the next generation, to provide them with an opportunity to experiment and explore different aspects of their creativity and encourage them.
+      %p Not all our volunteers are professional engineers, some do not even work in areas of technology, but all see the club as providing a place for children to develop their skills and understanding and want to support that.
+      %p We cater for as many different aspects of technology and engineering as is possible and practical from mechanics and electronics as well as a bit of programming, so if you have an interest, passion or hobby in any technological area and would like to help our youngsters, we would love to hear from you.
+      %p You need to be over 18. In the firsts instance use the form below to tell us a little about yourself and interests in the club and how you feel you could contribute. Once submitted, someone will get back to you and arrange a visit and discussion at the club. If we decide to take matters further, we will need to undertake and Enhanced DBS check on you
+
+    .col-xs-12.col-lg-6
+      = simple_form_for @volunteer, url: volunteer_path, defaults: { input_html: { class: 'form-control' } } do |f|
+        = f.input :firstname, label: "First name"
+        = f.input :lastname, label: "Last name"
+        = f.input :email
+        = f.input :phone_no, label: "Phone number"
+        = f.input :why, label: "Why do you want to get involved?", input_html: { rows: 5 }
+        = f.input :experience, label: "What experience do you have?", input_html: { rows: 5 }
+        = f.input :comments, label: "Any other comments?", input_html: { rows: 5 }
+        = f.submit "Send", class: "btn btn-default"

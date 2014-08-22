@@ -1,0 +1,31 @@
+- content_for(:title, 'Register Interest | YMTEC')
+.container
+  .row
+    .col-xs-12
+      %h1 Register Your Interest
+.container
+  .row
+    .col-xs-12.col-md-6
+      %p The Young makers club operates on a membership only basis. Due to safety requirements only a limited number of places are available. A quarterly membership fee is payable in advance. Full details of membership is available #{link_to 'here', club_rules_path}.
+      %p Please complete the registration of interest form if you wish to be notified when a place becomes available.
+      %p Alternatively, if you would like to volunteer your time to help out please fill out our #{link_to 'volunteers form', volunteer_path}.
+
+    .col-xs-12.col-md-6
+      = simple_form_for @interested_party, url: register_interest_path, defaults: { input_html: { class: 'form-control' } } do |f|
+        %h4 I wish for my child
+        = f.input :child_firstname, label: "Child's first name"
+        = f.input :child_lastname, label: "Child's last name"
+        = f.input :child_dob, label: "Child's date of birth", type: :date, placeholder: 'DD/MM/YYYY'
+        = f.input :child_gender, collection: [['Male', 'male'], ['Female', 'female']], label: "Child's gender"
+        = f.input :session_time, label: "Preferred session time", collection: [['9:00 - 11:00', 'early'], ['11:00 - 13:00', 'late']]
+        %p To be considered for membership in the Young makers club when a place becomes available.
+        %p I am the parent, legal guardian or responsible adult for the above named child.
+        = f.input :parent_title, collection: [['Dr', 'dr'], ['Miss', 'miss'], ['Mr', 'mr'], ['Mrs', 'mrs'], ['Ms', 'ms'], ['Prof', 'prof']], label: "Your title"
+        = f.input :parent_firstname, label: "Your first name"
+        = f.input :parent_lastname, label: "Your last name"
+        = f.input :parent_email, label: "Your email"
+        = f.input :parent_relationship, label: "Your relationship to the child"
+        = f.input :comments, as: :text, label: "Any comments", input_html: { rows: 5 }
+        = f.submit "Register Interest", class: "btn btn-default"
+- content_for(:view_specific_javascript) do
+  :javascript

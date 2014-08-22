@@ -1,0 +1,13 @@
+- content_for(:title, "#{@newsitem.title} | News | YMTEC")
+.container
+  .row
+    .col-xs-12
+      %h1.newsitem
+        = @newsitem.title
+        %span
+          Posted on #{@newsitem.created_at.strftime('%A %-d %B %Y')}
+          at #{@newsitem.created_at.strftime('%l:%M %p')}
+      %p
+        = @newsitem.content
+      %p
+        = link_to '&laquo; Back to all news'.html_safe, newsitems_path(anchor: "newsitem-#{@newsitem.id}")

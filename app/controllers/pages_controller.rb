@@ -1,16 +1,20 @@
 class PagesController < ApplicationController
+
+  LAT = 51.577198
+  LON = 0.603444
+
   def index
   	@newsitem = Newsitem.last
-  	@lat = 51.577198
-  	@lon = 0.603444
+  	@lat = LAT
+  	@lon = LON
   end
 
   def about
   end
 
   def location
-    @lat = 51.577198
-    @lon = 0.603444
+    @lat = LAT
+    @lon = LON
   end
 
   def club_rules

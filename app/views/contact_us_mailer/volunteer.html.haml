@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1
+      Email from #{@firstname} #{@lastname}
+    %p
+      Phone number: #{@phone_no}
+    %p
+      = @firstname
+      would like to volunteer to help out at the club.
+    %h4 Reasons why:
+    %p
+      = @why
+    %h4 Experience
+    %p
+      = @experience
+    %h4 Other comments
+    %p
+      = @comments

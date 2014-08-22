@@ -11,9 +11,9 @@ gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails', '3.1.1'
 gem 'turbolinks', '2.2.2'
 gem 'jbuilder', '2.1.3'
-gem 'foundation-rails', '5.3.0.1'
-gem 'foundation-formbuilder-rails', '0.2.6'
-# gem 'foundation-formbuilder-rails', path: '~/rails_projects/foundation-formbuilder-rails'
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+gem 'simple_form'
 gem 'skrollr-rails', '0.6.26'
 gem 'imagesLoaded_rails', '3.1.8'
 gem 'gmaps4rails', '2.1.2'
@@ -21,11 +21,13 @@ gem 'underscore-rails', '1.6.0'
 gem 'bcrypt', '3.1.7'
 gem 'figaro', '0.7.0'
 gem 'validates_timeliness', '3.0.14'
+gem 'haml-rails'
 
 group :development do
 	# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 	gem 'spring', '1.1.3'
 	gem 'foreman', '0.74.0'
+	gem 'html2haml'
 end
 
 group :development, :test do

@@ -3,10 +3,12 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  add_flash_types :success, :info, :warning, :danger
+
   private
 
     # Constant to store when cookie policy altered in human and linux timestamp form
-    COOKIES_POLICY_ALTERED_TIME = '2 August 2014 20:10:00'
+    COOKIES_POLICY_ALTERED_TIME = '22 August 2014 17:10:00'
     COOKIES_POLICY_ALTERED_ON = Time.parse(COOKIES_POLICY_ALTERED_TIME).strftime('%s').to_i
 
 	  def current_user

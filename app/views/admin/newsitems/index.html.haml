@@ -1,0 +1,22 @@
+- content_for(:title, 'News | YMTEC | Admin')
+.container
+  .row
+    .col-xs-12.col-lg-9
+      %h1.page-header
+        All News
+        %small= link_to 'Add News Item', new_admin_newsitem_path, class: 'btn btn-primary pull-right'
+.container
+  .row
+    .col-xs-12.col-lg-9
+      - if @newsitems.any?
+        - @newsitems.each do |newsitem|
+          %h4.newsitem
+            = link_to newsitem.title, admin_newsitem_path(newsitem)
+            = link_to 'Delete', admin_newsitem_path(newsitem), method: :delete, class: 'btn btn-xs btn-danger pull-right'
+            = link_to 'Update', edit_admin_newsitem_path(newsitem), class: 'btn btn-xs pull-right'
+          %span
+            Posted on #{newsitem.created_at.strftime('%A %-d %B %Y')}
+            at #{newsitem.created_at.strftime('%l:%M %p')}
+          %hr
+      - else
+        %h2 What! No news?

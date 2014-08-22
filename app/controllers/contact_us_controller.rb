@@ -5,16 +5,16 @@ class ContactUsController < ApplicationController
 
 	def create
 		@message = Message.new(message_params)
-		if @message.save?
+		if @message.save
 			if ContactUsMailer.contact_us_query(@message).deliver
 				flash[:success] = "Thank you for your message, we will be in touch shortly."
 				redirect_to root_path
 			else
-				flash.now[:warning] = "Oops! Something went wrong sending your query. Please try again later."
+				flash.now[:danger] = "Oops! Something went wrong sending your query. Please try again later."
 				render :new
 			end
 		else
-			flash.now[:alert] = "Oops! You have not filled out the form correctly. Please try again."
+			flash.now[:danger] = "Oops! You have not filled out the form correctly. Please try again."
 			render :new
 		end
 	end

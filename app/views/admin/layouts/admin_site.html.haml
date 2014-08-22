@@ -1,0 +1,26 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %title= content_for?(:title) ? yield(:title) : "Admin | YMTEC"
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "vendor/modernizr"
+    = csrf_meta_tags
+  %body.loading
+    #page-wrapper
+      = render 'admin/layouts/header'
+      %main
+        .container
+          .row
+            .col-xs-12.col-lg-9.col-lg-push-3
+              = yield
+            - if signed_in? && current_user.admin?
+              .col-xs-12.col-lg-3.col-lg-pull-9
+                %ul.nav.nav-pills.nav-stacked
+                  %li{:class => active_page?(admin_newsitems_path)}= link_to 'News', admin_newsitems_path
+                  %li{:class => active_page?(admin_users_path)}= link_to 'Users', admin_users_path
+      = render 'admin/layouts/footer'
+    = javascript_include_tag "application"
+    - if content_for(:view_specific_javascript)
+      = content_for(:view_specific_javascript)

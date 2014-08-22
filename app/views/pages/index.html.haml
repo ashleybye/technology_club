@@ -1,0 +1,95 @@
+- content_for(:title, 'Young Makers Technology and Engineering Club')
+- content_for(:index_header) do
+  #preload
+    = image_tag(image_path('circuit.jpg'))
+    = image_tag(image_path('toolbox.jpg'))
+    = image_tag(image_path('machine.jpg'))
+    = image_tag(image_path('wires.jpg'))
+  .header-large
+    .container
+      .row
+        .col-xs-12.text-center
+          = image_tag(image_path('logo.png'), id: 'logo')
+          -# .large-push-2.medium-push-2.large-8.medium-8.small-12.columns.text-center
+
+%section#slide-1.homeSlide
+  .slide-background{"data-anchor-target" => "#slide-1", "data-top" => "background-position: 0px 0px;", "data-top-bottom" => "background-position: 0px -200px;"}
+    %article.over-photo{"data-anchor-target" => "#slide-1 article", "data-center" => "opacity: 1"}
+      .container
+        .row
+          .col-xs-12
+            %h1.text-center Young Makers Technology and Engineering Club
+
+%section#slide-2
+  .plain-slide-background{"data-anchor-target" => "#slide-2"}
+    .content-slide
+      %article#news{"data-anchor-target" => "#slide-2 article", "data-menu-offset" => "-250"}
+        .container
+          .row
+            .col-xs-12.col-lg-4.col-lg-push-8
+              %h1 Latest News
+              %p= link_to 'All news &raquo;'.html_safe, newsitems_path
+            .col-xs-12.col-lg-8.col-lg-pull-4
+              - if @newsitem
+                %h4.newsitem
+                  = link_to @newsitem.title, @newsitem
+                  %span
+                    Posted on #{@newsitem.created_at.strftime('%A %-d %B %Y')}
+                    at #{@newsitem.created_at.strftime('%l:%M %p')}
+                %p
+                  = @newsitem.content
+              - else
+                %h4.newsitem There is no news!
+
+%section#slide-3.homeSlide
+  .slide-background{"data-anchor-target" => "#slide-3", "data-bottom-top" => "background-position: 0px 200px;", "data-top" => "background-position: 0px 0px;", "data-top-bottom" => "background-position: 0px -200px;"}
+
+%section#slide-4
+  .plain-slide-background{"data-anchor-target" => "#slide-4"}
+    .content-slide
+      %article#about{"data-anchor-target" => "#slide-4 article", "data-menu-offset" => "-250"}
+        .container
+          .row
+            .col-xs-12.col-lg-4
+              %h1 About the Club
+              %p= link_to 'Full details &raquo;'.html_safe, about_path
+            .col-xs-12.col-lg-8
+              %p The club provides an opportunity for children of secondary school age (years 7 –11 inclusive) to engage in technology, engineering and computing activities in a safe and friendly environment to develop technical knowledge and abilities in the company of like minded peers; for them to develop interpersonal skills and to have some fun exploring and developing projects that they are interested in.
+
+%section#slide-5.homeSlide
+  .slide-background{"data-anchor-target" => "#slide-5", "data-bottom-top" => "background-position: 0px 200px;", "data-top" => "background-position: 0px 0px;", "data-top-bottom" => "background-position: 0px -200px;"}
+
+%section#slide-6
+  .plain-slide-background{"data-anchor-target" => "#slide-6"}
+    .content-slide
+      %article#location{"data-anchor-target" => "#slide-6 article", "data-menu-offset" => "-250"}
+        .container
+          .row
+            .col-xs-12.col-lg-3.col-lg-push-9
+              %h1 Location
+              %p The club meets at ??? every (most) Saturday Mornings from 09:00 to 11:00.
+              %p= link_to "Further details &raquo;".html_safe, location_path
+            .col-xs-12.col-lg-9.col-lg-pull-3
+              #map
+
+%section#slide-7.homeSlide
+  .slide-background{"data-anchor-target" => "#slide-7", "data-bottom-top" => "background-position: 0px 200px;", "data-top" => "background-position: 0px 0px;", "data-top-bottom" => "background-position: 0px -200px;"}
+
+%section#slide-8
+  .plain-slide-background{"data-anchor-target" => "#slide-8"}
+    .content-slide
+      %article#join{"data-anchor-target" => "#slide-8 article", "data-menu-offset" => "-250"}
+        .container
+          .row
+            .col-xs-12.col-lg-4
+              .text-center
+                %h1 Join In
+                = link_to "Register Interest", register_interest_path, class: 'button round'
+                %br/
+                = link_to "Volunteer with the club", volunteer_path
+            .col-xs-12.col-lg-8
+              %p The Young makers club operates on a membership only basis. Due to safety requirements only a limited number of places are available. A quarterly membership fee is payable in advance.
+              %p The club relies on adult volunteers to help out on a Saturday morning. All our helpers have an interest or passion to promote technology and engineering to the next generation, to provide them with an opportunity to experiment and explore different aspects of their creativity and encourage them.
+
+- content_for(:view_specific_javascript) do
+  = render 'google_maps'

@@ -5,16 +5,16 @@ class InterestedPartiesController < ApplicationController
 
   def create
     @interested_party = InterestedParty.new(interested_party_params)
-    if @interested_party.save?
+    if @interested_party.save
       if ContactUsMailer.interested_party_message(@interested_party).deliver
         flash[:success] = "Thank you for your message, we will be in touch when we have availability."
         redirect_to root_path
       else
-        flash.now[:warning] = "Oops! Something went wrong sending your message. Please try again later."
+        flash.now[:danger] = "Oops! Something went wrong sending your message. Please try again later."
         render :new
       end
     else
-      flash.now[:alert] = "Oops! Please try again."
+      flash.now[:danger] = "Oops! Please try again."
       render :new
     end
   end

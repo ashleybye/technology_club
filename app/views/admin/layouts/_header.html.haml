@@ -1,0 +1,19 @@
+%header
+  %nav.navbar.navbar-default
+    .container
+      .navbar-header
+        %button.navbar-toggle( type="button" data-toggle="collapse" data-target="main-navbar" )
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        = link_to "YMTEC Admin", admin_dashboard_path, class: "navbar-brand"
+      #main-navbar.collapse.navbar-collapse
+        %ul.nav.navbar-nav
+          - if signed_in?
+            = render 'admin/layouts/user_dropdown_menu'
+        %ul.nav.navbar-nav.navbar-right
+          %li= link_to "Main Site", root_path
+
+  = render 'layouts/cookies_message' unless visitor_has_accepted_cookies_policy?
+  = render 'layouts/flash'

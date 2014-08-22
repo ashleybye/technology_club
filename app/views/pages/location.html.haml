@@ -1,0 +1,16 @@
+- content_for(:title, 'Club Location | YMTEC')
+.container
+  .row
+    .col-xs-12
+      %h1 Club Location
+.container
+  .row
+    .col-xs-12.col-md-7
+      #map
+    .col-xs-12.col-md-5
+      %p The club meets at ??? every (most) Saturday Mornings from 09:00 to 11:00.
+      %p Due to health and safety reasons we can not operate on a drop-in basis, it has to be for members only.
+      %p We can not accommodate casual visits from prospective members or other visitors.
+      %p If you would like to visit to see the club, meet the organisers etc then please use the contact us form to make arrangements.
+- content_for(:view_specific_javascript) do
+  = render 'google_maps'

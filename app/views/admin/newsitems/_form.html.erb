@@ -1,8 +1,0 @@
-<%= form_for([:admin, @newsitem]) do |f| %>
-	<%= f.zurb_text_field :title, autofocus: true %>
-	<%= f.zurb_text_area :content, field: { rows: 10 } %>
-	<div class="right">
-		<%= f.submit class: 'button round' %>
-		<%= link_to 'Cancel', admin_newsitems_path, class: 'button alert tiny' %>
-	</div>
-<% end %>

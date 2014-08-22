@@ -1,0 +1,9 @@
+- content_for(:title, 'Login | YMTEC | Admin')
+.container
+  .row
+    .col-xs-6
+      %h1.page-header Login
+      = simple_form_for @session, url: admin_sessions_path, defaults: { input_html: { class: 'form-control' } } do |f|
+        = f.input :email
+        = f.input :password
+        = f.submit 'Sign In', class: 'btn btn-default'

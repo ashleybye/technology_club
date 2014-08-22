@@ -1,6 +1,7 @@
 class Admin::SessionsController < Admin::AdminController
-	
+
 	skip_before_action :require_admin_signin, only: [:new, :create, :destroy]
+	before_action :redirect_to_dashboard_if_signed_in, only: :new
 
 	def new
 		@session = Session.new
@@ -15,11 +16,11 @@ class Admin::SessionsController < Admin::AdminController
 				redirect_to admin_dashboard_path
 				session[:intended_url] = nil
 			else
-				flash.now[:alert] = "Uh oh! We don't recognise that email/password combination. Please try again."
+				flash.now[:danger] = "Uh oh! We don't recognise that email/password combination. Please try again."
 				render 'new'
 			end
 		else
-			flash.now[:alert] = "Uh oh! There was some kind of problem. Take a look below and try again."
+			flash.now[:danger] = "Uh oh! There was some kind of problem. Take a look below and try again."
 			render 'new'
 		end
 	end
@@ -27,7 +28,7 @@ class Admin::SessionsController < Admin::AdminController
 	def destroy
 		session[:user_id] = nil
 		current_user = nil
-		flash[:notice] = "You are now logged out."
+		flash[:success] = "You are now logged out."
 		redirect_to root_path
 	end
 
@@ -35,6 +36,10 @@ class Admin::SessionsController < Admin::AdminController
 
 		def session_params
 			params.require(:session).permit(:email, :password)
+		end
+
+		def redirect_to_dashboard_if_signed_in
+			redirect_to admin_dashboard_path if current_user && current_user.admin?
 		end
 
 end

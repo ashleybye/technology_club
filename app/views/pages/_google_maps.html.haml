@@ -1,0 +1,32 @@
+/ Google Map
+%script{:src => "//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry", :type => "text/javascript"}
+%script{:src => "//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js", :type => "text/javascript"}
+:javascript
+  handler = Gmaps.build('Google');
+  		handler.buildMap({
+  		    provider: {
+  		      // disableDefaultUI: false
+  		      // pass in other Google Maps API options here
+  		    },
+  		    internal: {
+  		      id: 'map'
+  		    }
+  		  },
+  		  function(){
+  		    markers = handler.addMarkers([
+  		      {
+  		        "lat": #{@lat},
+  			      "lng": #{@lon},
+  		        // "picture": {
+  		        //   "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
+  		        //   "width":  36,
+  		        //   "height": 36
+  		        // },
+  		        "infowindow": "Why not come and join us?"
+  		      }
+  		    ]);
+  		    handler.bounds.extendWith(markers);
+  		    handler.fitMapToBounds();
+  		    handler.getMap().setZoom(15);
+  		  }
+  		);

@@ -13,7 +13,7 @@ class Admin::UsersController < Admin::AdminController
   		flash[:success] = "User added successfully."
   		redirect_to admin_users_path
   	else
-  		flash.now[:alert] = "Oops! Something went wrong. Please try again."
+  		flash.now[:danger] = "Oops! Something went wrong. Please try again."
   		render :new
   	end
   end
@@ -28,7 +28,7 @@ class Admin::UsersController < Admin::AdminController
   		flash[:success] = "User updated successfully."
   		redirect_to admin_users_path
   	else
-  		flash.now[:alert] = "Oops! Something went wrong."
+  		flash.now[:danger] = "Oops! Something went wrong."
   		render :edit
   	end
   end
@@ -36,12 +36,12 @@ class Admin::UsersController < Admin::AdminController
   def destroy
   	@user = User.find(params[:id])
   	if current_user?(@user)
-  		flash[:alert] = "You cannot delete yourself!"
+  		flash[:danger] = "You cannot delete yourself!"
 	  else
 	  	if @user && @user.destroy
-	  		flash[:notice] = "User removed."
+	  		flash[:success] = "User removed."
 		  else
-		  	flash[:alert] = "Oops! Something went wrong."
+		  	flash[:danger] = "Oops! Something went wrong."
 		  end
 		end
   	redirect_to admin_users_path

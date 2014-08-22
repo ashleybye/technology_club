@@ -30,15 +30,15 @@ main {
 
 footer {
 	width: 100%;
-	height: 120px;
+	// height: 120px;
 	position: absolute;
 	bottom: 0;
 	left: 0;
+	background-color: $primary-yellow;
 }
 
 #footer-top {
 	height: 100px;
-	background-color: $primary-yellow;
 	padding: 25px 15px;
 }
 
@@ -49,6 +49,10 @@ footer {
 	padding-top: 17px;
 	padding-bottom: 17px;
 	margin-right: 15px;
+}
+
+#social {
+	background-color: $primary-yellow;
 }
 
 #social ul li {
@@ -89,23 +93,23 @@ footer {
 	list-style: none;
 }
 
-/* Admin section specific */
-.admin-nav-panel {
-  @include panel(
-    $padding: 0
-  );
-}
-
-.admin-side-nav {
-  @include side-nav();
-  li {
-  	margin: 0px;
-  	padding: 0;
-  	a:not(.button) {
-	    display: block;
-	    color: #008CBA;
-	    margin: 0;
-	    padding: 5px;
-	  };
-  };
-}
+// /* Admin section specific */
+// .admin-nav-panel {
+//   @include panel(
+//     $padding: 0
+//   );
+// }
+//
+// .admin-side-nav {
+//   @include side-nav();
+//   li {
+//   	margin: 0px;
+//   	padding: 0;
+//   	a:not(.button) {
+// 	    display: block;
+// 	    color: #008CBA;
+// 	    margin: 0;
+// 	    padding: 5px;
+// 	  };
+//   };
+// }

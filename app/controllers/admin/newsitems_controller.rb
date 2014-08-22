@@ -17,7 +17,7 @@ class Admin::NewsitemsController < Admin::AdminController
 			flash[:success] = "New news item successfully created."
 			redirect_to admin_newsitems_path
 		else
-			flash.now[:alert] = "Oops! Something went wrong. Please try again."
+			flash.now[:danger] = "Oops! Something went wrong. Please try again."
 			render :new
 		end
 	end
@@ -32,7 +32,7 @@ class Admin::NewsitemsController < Admin::AdminController
 			flash[:success] = "News item successfully updated."
 			redirect_to admin_newsitems_path
 		else
-			flash.now[:alert] = "Oops! Something went wrong. Please try again."
+			flash.now[:danger] = "Oops! Something went wrong. Please try again."
 			render :edit
 		end
 	end
@@ -40,10 +40,10 @@ class Admin::NewsitemsController < Admin::AdminController
 	def destroy
 		@newsitem = Newsitem.find(params[:id])
 		if @newsitem && @newsitem.destroy
-			flash[:notice] = "News item successfully deleted."
+			flash[:success] = "News item successfully deleted."
 			redirect_to admin_newsitems_path
 		else
-			flash.now[:alert] = "Oops! Something went wrong. Please try again."
+			flash.now[:danger] = "Oops! Something went wrong. Please try again."
 		end
 	end
 

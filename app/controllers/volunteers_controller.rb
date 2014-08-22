@@ -10,11 +10,11 @@ class VolunteersController < ApplicationController
         flash[:success] = "Thank you for your volunteering, we will be in touch shortly."
         redirect_to root_path
       else
-        flash.now[:warning] = "Oops! Something went wrong sending your query. Please try again later."
+        flash.now[:danger] = "Oops! Something went wrong sending your query. Please try again later."
         render :new
       end
     else
-      flash.now[:alert] = "Oops! Something went wrong. Please try again."
+      flash.now[:danger] = "Oops! Something went wrong. Please try again."
       render :new
     end
   end

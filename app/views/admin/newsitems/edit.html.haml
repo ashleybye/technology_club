@@ -1,0 +1,10 @@
+- content_for(:title, 'News | YMTEC | Admin')
+.container
+  .row
+    .col-xs-12.col-lg-9
+      %h1.page-header
+        Edit #{@newsitem.title}
+.container
+  .row
+    .col-xs-12.col-lg-9
+      = render 'admin/newsitems/form'

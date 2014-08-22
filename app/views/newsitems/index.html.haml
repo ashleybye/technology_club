@@ -1,0 +1,23 @@
+- content_for(:title, 'News | YMTEC')
+.container
+  .row
+    .col-xs-12
+      %h1 News from the club
+- if @newsitems.any?
+  .container
+    - @newsitems.each do |newsitem|
+      .row{:id => "newsitem-#{newsitem.id}"}
+        .col-xs-12
+          %hr/
+          %h2.newsitem
+            = link_to newsitem.title, newsitem
+            %span
+              Posted on #{newsitem.created_at.strftime('%A %-d %B %Y')}
+              at #{newsitem.created_at.strftime('%l:%M %p')}
+          %p
+            = newsitem.content
+- else
+  .container
+    .row
+      .col-xs-12
+        %h2 Sorry, we have no news at the moment!

@@ -11,70 +11,15 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap-sprockets
 //= require jquery_ujs
-//= require foundation
-//= require date
-//= require foundation_calendar
-//= require helpers/date-helpers
-//= require helpers/string-helpers
 //= require imagesloaded
 //= require skrollr
 //= require skrollr.ie
-//= require skrollr.menu
 //= require underscore
 //= require gmaps/google
 //= require turbolinks
 //= require_tree .
-
-// Initialise Foundation 5
-$(function(){
-	$(document).foundation();
-});
-
-// Close cookies policy alert (using Foundation 5)
-// ;(function ($, window, document, undefined) {
-//   'use strict';
-
-//   Foundation.libs.alert = {
-//     name : 'alert',
-
-//     version : '5.3.0',
-
-//     settings : {
-//       callback: function (){}
-//     },
-
-//     init : function (scope, method, options) {
-//       this.bindings(method, options);
-//     },
-
-//     events : function () {
-//       var self = this,
-//           S = this.S;
-
-//       $(this.scope).off('.alert').on('click.fndtn.alert', '[' + this.attr_name() + '] a.close-cookies-policy', function (e) {
-//           var alertBox = S(this).closest('[' + self.attr_name() + ']'),
-//               settings = alertBox.data(self.attr_name(true) + '-init') || self.settings;
-
-//         e.preventDefault();
-//         if (Modernizr.csstransitions) {
-//           alertBox.addClass("alert-close");
-//           alertBox.on('transitionend webkitTransitionEnd oTransitionEnd', function(e) {
-//             S(this).trigger('close-cookies-policy').trigger('close.fndtn.alert').remove();
-//             settings.callback();
-//           });
-//         } else {
-//           alertBox.fadeOut(300, function () {
-//             S(this).trigger('close-cookies-policy').trigger('close.fndtn.alert').remove();
-//             settings.callback();
-//           });
-//         }
-//       });
-//     },
-
-//     reflow : function () {}
-//   };
-// }(jQuery, window, window.document));
 
 // Initialise Skrollr and ImagesLoaded
 ( function( $ ) {
@@ -84,7 +29,7 @@ $(function(){
 	$slide = $('.homeSlide');
 	$body = $('body');
 
-	//FadeIn all sections   
+	//FadeIn all sections
 	$body.imagesLoaded( function() {
 		setTimeout(function() {
 
@@ -113,7 +58,7 @@ $(function(){
 		// Keep minimum height 550
 		if(winH <= 550) {
 			winH = 550;
-		} 
+		}
 
 		// Resize our slides
 		$slide.height(winH);

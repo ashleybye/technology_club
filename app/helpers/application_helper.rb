@@ -5,20 +5,16 @@ module ApplicationHelper
 
 	def flash_css_class(type)
 		case type
-		when :alert
-			"alert-box alert"
-		when :warning
-			"alert-box warning"
 		when :success
-			"alert-box success"
+			"alert alert-success alert-dismissible"
 		when :info
-			"alert-box info"
-		when :notice
-			"alert-box notice"
-		when :secondary
-			"alert-box secondary"
+			"alert alert-info alert-dismissible"
+		when :warning
+			"alert alert-warning alert-dismissible"
+		when :danger
+			"alert alert-danger alert-dismissible"
 		else
-			""
+			"alert alert-info alert-dismissible"
 		end
 	end
 end

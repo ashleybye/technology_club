@@ -1,0 +1,15 @@
+- content_for(:title, 'News | YMTEC | Admin')
+.container
+  .row
+    .col-xs-12.col-lg-9
+      %h1.page-header
+        = @newsitem.title
+        = link_to 'Delete', admin_newsitem_path(@newsitem), method: :delete, class: 'btn btn-danger btn-sm pull-right'
+        = link_to 'Update', edit_admin_newsitem_path(@newsitem), class: 'btn btn-sm pull-right'
+      %span
+        Posted on #{@newsitem.created_at.strftime('%A %-d %B %Y')}
+        at #{@newsitem.created_at.strftime('%l:%M %p')}
+      %p
+        = @newsitem.content
+      %p
+        = link_to '&laquo; Back to all news'.html_safe, admin_newsitems_path

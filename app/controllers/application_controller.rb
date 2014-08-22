@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   private
 
     # Constant to store when cookie policy altered in human and linux timestamp form
-    COOKIES_POLICY_ALTERED_TIME = '22 August 2014 17:10:00'
+    COOKIES_POLICY_ALTERED_TIME = '22 August 2014 16:10:00'
     COOKIES_POLICY_ALTERED_ON = Time.parse(COOKIES_POLICY_ALTERED_TIME).strftime('%s').to_i
 
 	  def current_user

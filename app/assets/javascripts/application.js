@@ -44,13 +44,17 @@
 	function adjustWindow(){
 
 		// Init Skrollr
-		var s = skrollr.init({
-			forceHeight: false,
-			render: function(data) {
-				//Debugging - Log the current scroll position.
-				//console.log(data.curTop);
-			}
-		});
+		if(!(/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)) {
+			var s = skrollr.init({
+				forceHeight: false,
+				render: function(data) {
+					//Debugging - Log the current scroll position.
+					//console.log(data.curTop);
+				}
+			});
+		}
+
+
 
 		// Get window size
 		winH = $window.height();

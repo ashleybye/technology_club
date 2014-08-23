@@ -7,7 +7,9 @@
     = stylesheet_link_tag    "application"
     = javascript_include_tag "vendor/modernizr"
     = csrf_meta_tags
-  %body.loading( data-spy="scroll" data-target="#affix-nav" )
+  %body{:"data-spy" => (content_for(:body_tag_data_spy) ? content_for(:body_tag_data_spy) : ''),
+        :"data-target" => (content_for(:body_tag_data_target) ? content_for(:body_tag_data_target) : ''),
+        :class => (content_for(:body_tag_class) ? content_for(:body_tag_class) : '')}
     #page-wrapper
       = render 'layouts/header'
       %main

@@ -1,5 +1,6 @@
 - content_for(:title, 'Young Makers Technology and Engineering Club')
-- content_for(:index_header) do
+- content_for(:body_tag_class, "loading")
+- content_for(:page_header) do
   #preload
     = image_tag(image_path('circuit.jpg'))
     = image_tag(image_path('toolbox.jpg'))
@@ -91,3 +92,4 @@
 
 - content_for(:view_specific_javascript) do
   = render 'google_maps'
+  = render 'skroller'
